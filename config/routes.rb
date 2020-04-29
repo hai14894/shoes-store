@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+get "/shoes", to: "shoes#index" 
+get "/shoes/:id", to: "shoes#show"
+post "/shoes", to: "shoes#create"
+put "/shoes/:id", to: "shoes#update"
+delete "/shoes/:id", to: "shoes#destroy"
+
 end
