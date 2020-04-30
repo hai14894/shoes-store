@@ -1,4 +1,6 @@
 class ShoesController < ApplicationController
+    before_action :choose_shoe, only: [:show, :edit, :update, :destroy]
+
     def index 
       
         @shoes = Shoe.all
@@ -6,6 +8,12 @@ class ShoesController < ApplicationController
 
     def show
         @shoe= choose_shoe
+    end
+
+    def new 
+        set_conditions
+        @shoe = Shoe.new
+
     end
 
     def create
@@ -22,9 +30,15 @@ class ShoesController < ApplicationController
         destroyed_shoe =choose_shoe.destroy
 
     end
+    def edit 
+        set_conditions
+    end
 end
 
 private
 def choose_shoe
     Shoe.find(params["id"])
+end
+def set_conditions 
+    @conditions = Shoe.conditions.keys
 end

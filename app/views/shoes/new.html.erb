@@ -1,0 +1,21 @@
+<%=form_with model: @shoes, local: true do |form|%>
+<div>
+<%=form.label :brand%>
+<%=form.text_field :brand%>
+</div>
+<div>
+<%=form.label :model%>
+<%=form.text_field :model%>
+</div>
+<% @conditions.each do |option| %>
+    <div>
+    <%= form.radio_button :condition, option %>
+    <%= form.label "condition_#{option}".to_sym, option%>
+    <div>
+    <% end %>
+<div>
+<%= form.submit %>
+</div>
+
+<%end%>
+

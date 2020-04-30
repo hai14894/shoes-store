@@ -3,7 +3,7 @@ class CreateShoes < ActiveRecord::Migration[5.2]
     create_table :shoes do |t|
       t.string :brand
       t.string :model
-      t.string :condition
+      t.integer :condition
       t.integer :price
       t.text :description
 
